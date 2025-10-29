@@ -1,0 +1,56 @@
+body {
+    display: block;
+    margin: 0px;
+    font-family: "Segoe UI", sans-serif;
+}
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap'); */
+/* Background Gradient Theme */
+/* body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #000000, #000000, #000000);
+  color: #f5f5f5;
+  overflow-x: hidden;
+} */
+
+/* Glassy Card Effect */
+/* .glassy {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+} */
+
+/* .glassy:hover {
+  transform: translateY(-5px);
+} */
+
+/* Yellow + Violet Theme Colors */
+/* :root {
+  --primary-yellow: #ffd700;
+  --secondary-violet: #8a2be2;
+  --dark-black: #0d0d0d;
+} */
+
+/* Buttons */
+/* .btn {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--primary-yellow), var(--secondary-violet));
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+} */
+
+/* .btn:hover {
+  background: linear-gradient(135deg, var(--secondary-violet), var(--primary-yellow));
+  transform: scale(1.05);
+} */
