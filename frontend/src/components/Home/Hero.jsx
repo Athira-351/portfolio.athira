@@ -6,11 +6,12 @@ function Hero() {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    background: "linear-gradient(to right, #010008ff, #302b63, #24243e)",
-    color: "#fff",
+    background: "var(--hero-bg)",
+    color: "var(--text-primary)",
     position: "relative",
     padding: "0 4rem",
     overflow: "hidden",
+    marginBottom: "-150px",
   };
 
   const contentStyle = {
@@ -35,12 +36,12 @@ function Hero() {
 
   const paragraphStyle = {
     fontSize: "18px",
-    color: "#d1d5db",
+    color: "var(--text-muted)",
     marginBottom: "10px",
   };
 
   const subTextStyle = {
-    color: "#9ca3af",
+    color: "var(--text-muted)",
     marginBottom: "30px",
   };
 
@@ -61,14 +62,15 @@ function Hero() {
 
   const startButton = {
     ...buttonStyle,
-    background: "linear-gradient(to right, #ec4899, #6366f1)",
+    background: "var(--btn-bg-alt)",
     color: "#fff",
   };
 
   const contactButton = {
     ...buttonStyle,
-    backgroundColor: "#374151",
-    color: "#fff",
+    backgroundColor: "var(--surface-strong)",
+    color: "var(--text-primary)",
+    border: "1px solid var(--border)",
   };
 
   const circleContainer = {
@@ -76,8 +78,8 @@ function Hero() {
     width: "320px",
     height: "320px",
     borderRadius: "50%",
-    background: "radial-gradient(circle at 30% 30%, #6366f1, #302b63)",
-    boxShadow: "0 0 40px rgba(0,0,0,0.3)",
+    background: "radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.18), rgba(15, 12, 41, 0.08))",
+    boxShadow: "0 0 40px rgba(0,0,0,0.12)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -97,7 +99,7 @@ function Hero() {
       <div style={contentStyle}>
         <div
           style={{
-            backgroundColor: "#10b981",
+            backgroundColor: "var(--btn-bg)",
             color: "#fff",
             fontSize: "12px",
             fontWeight: "600",
@@ -125,12 +127,69 @@ function Hero() {
         </div>
       </div>
 
-      <div style={circleContainer}>
-        <img
-          src="/uploads/athira-transparent.png" // Replace with your actual image path
+      <div style={{ 
+        // ...circleContainer,
+        position: "relative" 
+      }}>
+        {/* Right Side Line */}
+        <div
+          style={{
+            position: "absolute",
+            right: "0px",
+            top: "110px",
+            width: "4px",
+            height: "70%",
+            background: "linear-gradient(180deg, #ffffff 0%, #ffffff 50%, #302b63 100%)",
+            borderRadius: "2px",
+            boxShadow: "0 0 20px rgba(255, 135, 195, 0.6)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            right: "-15px",
+            top: "200px",
+            width: "4px",
+            height: "70%",
+            background: "linear-gradient(180deg, #ffffff 0%, #ffffff 50%, #302b63 100%)",
+            borderRadius: "2px",
+            boxShadow: "0 0 20px rgba(255, 135, 195, 0.6)",
+          }}
+        />
+
+        {/* Bottom Line */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "3px",
+            left: "0",
+            width: "100%",
+            height: "4px",
+            background: "linear-gradient(90deg, #302b63 0%, #ffffff 50%, #ffffff 100%)",
+            borderRadius: "2px",
+            boxShadow: "0 0 20px rgba(236, 72, 153, 0.6)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-12px",
+            left: "0",
+            width: "100%",
+            height: "4px",
+            background: "linear-gradient(90deg, #302b63 0%, #ffffff 50%, #ffffff 100%)",
+            borderRadius: "2px",
+            boxShadow: "0 0 20px rgba(236, 72, 153, 0.6)",
+          }}
+        />
+
+        {/* <img
+          src="/uploads/athira.png"
           alt="Athira Anil"
           style={imageStyle}
-        />
+        /> */}
+        
+        
       </div>
     </section>
   );

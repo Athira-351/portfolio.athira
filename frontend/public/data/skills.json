@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1771048831976,
+    "name": "HTML",
+    "proficiency": "Advanced",
+    "description": "HTML (HyperText Markup Language) is the standard markup language used to create and structure web pages. It defines the meaning and structure of content using elements and tags, which browsers interpret to display text, images, links, and other media.",
+    "category": "Frontend"
+  },
+  {
+    "id": 1771049289014,
+    "name": "CSS",
+    "proficiency": "Advanced",
+    "description": "CSS (Cascading Style Sheets) is a stylesheet language used to control the presentation of HTML documents. It defines how elements should be displayed — including colors, fonts, spacing, layouts, and animations — enabling a clear separation between content (HTML) and design.",
+    "category": "Frontend"
+  },
+  {
+    "id": 1771049289015,
+    "name": "JavaScript",
+    "proficiency": "Advanced",
+    "description": "JavaScript is a versatile programming language that enables interactive web applications. It allows you to create dynamic content, control multimedia, animate images, and much more on the client side.",
+    "category": "Frontend"
+  },
+  {
+    "id": 1771049289016,
+    "name": "React.js",
+    "proficiency": "Advanced",
+    "description": "React is a JavaScript library for building user interfaces with reusable components. It uses a virtual DOM for efficient rendering and manages state through hooks and context API.",
+    "category": "Frontend"
+  },
+  {
+    "id": 1771049289017,
+    "name": "Bootstrap",
+    "proficiency": "Advanced",
+    "description": "Bootstrap is a popular CSS framework that provides pre-built components and utilities for rapid responsive web design. It simplifies the creation of mobile-first websites with built-in classes and components.",
+    "category": "Frontend"
+  },
+  {
+    "id": 1771049289018,
+    "name": "Reactstrap",
+    "proficiency": "Advanced",
+    "description": "Reactstrap is a React component library for Bootstrap. It provides Bootstrap components as React components, making it easy to build responsive UIs with React.",
+    "category": "Frontend"
+  },
+  {
+    "id": 1771049289019,
+    "name": "Python",
+    "proficiency": "Intermediate",
+    "description": "Python is a versatile, high-level programming language known for its simplicity and readability. It's widely used for web development, data analysis, machine learning, and automation.",
+    "category": "Backend"
+  },
+  {
+    "id": 1771049289020,
+    "name": "Express.js",
+    "proficiency": "Advanced",
+    "description": "Express is a minimal and flexible Node.js web application framework. It provides a robust set of features for building web and mobile applications with Node.js.",
+    "category": "Backend"
+  },
+  {
+    "id": 1771049289021,
+    "name": "PHP",
+    "proficiency": "Intermediate",
+    "description": "PHP is a server-side scripting language designed for web development. It's easy to learn and can be embedded into HTML, making it ideal for creating dynamic web applications.",
+    "category": "Backend"
+  },
+  {
+    "id": 1771049289022,
+    "name": "Laravel",
+    "proficiency": "Intermediate",
+    "description": "Laravel is a modern PHP framework for building web applications. It provides a clean, elegant syntax and powerful tools for routing, authentication, and database management.",
+    "category": "Backend"
+  },
+  {
+    "id": 1771049289023,
+    "name": "MySQL",
+    "proficiency": "Advanced",
+    "description": "MySQL is a popular open-source relational database management system. It's known for its reliability, ease of use, and is widely used in web applications for data storage and retrieval.",
+    "category": "Database"
+  },
+  {
+    "id": 1771049289024,
+    "name": "MongoDB",
+    "proficiency": "Advanced",
+    "description": "MongoDB is a NoSQL document database that stores data in flexible JSON-like documents. It's highly scalable and perfect for applications that require rapid development and flexible data structures.",
+    "category": "Database"
+  },
+  {
+    "id": 1771049289025,
+    "name": "Figma",
+    "proficiency": "Advanced",
+    "description": "Figma is a web-based design and prototyping tool used for creating user interfaces, designing logos, and collaborating on design projects. It enables real-time collaboration among team members.",
+    "category": "Design"
+  }
+]

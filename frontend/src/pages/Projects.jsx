@@ -1,6 +1,5 @@
 
 import { useEffect, useState } from "react";
-import axios from "axios";
 import projectImage from "../assets/projects.png"
 import thumbnailbgImg from "../assets/polysoftdev.png"
 import Navbar from "../components/Navbar";
@@ -10,10 +9,10 @@ function Projects() {
   const [featuredProject, setFeaturedProject] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/projects").then((res) => {
-      setProjects(res.data);
-      if (res.data.length > 0) {
-        setFeaturedProject(res.data[0]); // Set first project as featured
+    fetch("/data/projects.json").then((res) => res.json()).then((data) => {
+      setProjects(data);
+      if (data.length > 0) {
+        setFeaturedProject(data[0]); // Set first project as featured
       }
     });
   }, []);
@@ -132,81 +131,115 @@ function Projects() {
   };
 
   const carouselWrapperStyle = {
-    display: "flex",
-    overflowX: "auto",
-    gap: "20px",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+    gap: "28px",
     padding: "20px 0",
     maxWidth: "100%",
-    scrollbarWidth: "thin",
-    scrollbarColor: "#6366f1 #333",
-    WebkitOverflowScrolling: "touch",
+    width: "100%",
   };
 
-  const webkitScrollbarStyle = `
-    .carousel-wrapper::-webkit-scrollbar {
-      height: 8px;
-    }
-    .carousel-wrapper::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-    }
-    .carousel-wrapper::-webkit-scrollbar-thumb {
-      background-color: #6366f1;
-      border-radius: 10px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-  `;
+  const webkitScrollbarStyle = ``;
 
   const thumbnailCardStyle = {
-    flexShrink: 0,
-    background: "rgba(255, 255, 255, 0.08)",
-    backdropFilter: "blur(5px)",
-    borderRadius: "15px",
-    padding: "15px",
-    width: "180px",
-    boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
+    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%)",
+    backdropFilter: "blur(10px)",
+    borderRadius: "20px",
+    padding: "24px",
+    width: "100%",
+    boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
     transition:
-      "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
-    border: "1px solid rgba(255,255,255,0.15)",
+      "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease",
+    border: "1px solid rgba(255,255,255,0.2)",
     cursor: "pointer",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "flex-start",
+    gap: "16px",
+    position: "relative",
+    overflow: "hidden",
   };
 
   const thumbnailImageStyle = {
     width: "100%",
-    height: "100px",
-    borderRadius: "10px",
+    height: "180px",
+    borderRadius: "14px",
     objectFit: "cover",
-    marginBottom: "10px",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+    transition: "transform 0.3s ease",
   };
 
   const thumbnailTitleStyle = {
-    fontSize: "14px",
-    fontWeight: "600",
+    fontSize: "18px",
+    fontWeight: "700",
     color: "#ffffff",
-    textAlign: "center",
-    marginBottom: "5px",
+    textAlign: "left",
+    marginBottom: "8px",
   };
 
   const thumbnailDescriptionStyle = {
-    fontSize: "11px",
-    color: "#cccccc",
-    textAlign: "center",
+    fontSize: "13px",
+    color: "#e0e0e0",
+    textAlign: "left",
     overflow: "hidden",
     textOverflow: "ellipsis",
     display: "-webkit-box",
-    WebkitLineClamp: 2,
+    WebkitLineClamp: 3,
     WebkitBoxOrient: "vertical",
+    lineHeight: "1.5",
+  };
+
+  const projectCardButtonStyle = {
+    marginTop: "auto",
+    padding: "10px 20px",
+    fontSize: "13px",
+    fontWeight: "700",
+    color: "#ffffff",
+    textDecoration: "none",
+    background: "linear-gradient(to right, #8b5cf6, #d946ef)",
+    border: "none",
+    borderRadius: "8px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    display: "inline-block",
   };
 
   return (
     <div>
     <Navbar style={{color: "#000000"}} />
     <section style={{ ...sectionStyle, position: "relative" }}>
-      <style>{webkitScrollbarStyle}</style>
+      <style>{`
+        ${webkitScrollbarStyle}
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-8px); }
+        }
+
+        .thumbnail-card {
+          animation: fadeIn 0.6s ease-out;
+        }
+
+        .thumbnail-card:hover {
+          transform: translateY(-12px) !important;
+          box-shadow: 0 20px 40px rgba(236, 72, 153, 0.3) !important;
+          border-color: rgba(236, 72, 153, 0.6) !important;
+          background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%) !important;
+        }
+
+        .thumbnail-card:hover img {
+          transform: scale(1.05);
+        }
+
+        .thumbnail-card button:hover {
+          transform: scale(1.05);
+          box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
+        }
+      `}</style>
      {/* Decorative rectangle with image aligned to the left */}
 <div
   style={{
@@ -290,6 +323,7 @@ function Projects() {
           {projects.map((p) => (
             <div
               key={p.id}
+              className="thumbnail-card"
               style={{
                 ...thumbnailCardStyle,
                 borderColor:
@@ -299,18 +333,7 @@ function Projects() {
                 boxShadow:
                   featuredProject && featuredProject.id === p.id
                     ? "0 8px 20px rgba(139, 92, 246, 0.4)"
-                    : "0 5px 15px rgba(0,0,0,0.2)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-5px)";
-                e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.3)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow =
-                  featuredProject && featuredProject.id === p.id
-                    ? "0 8px 20px rgba(139, 92, 246, 0.4)"
-                    : "0 5px 15px rgba(0,0,0,0.2)";
+                    : "0 8px 24px rgba(0,0,0,0.3)",
               }}
               onClick={() => setFeaturedProject(p)}
             >

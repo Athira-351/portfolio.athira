@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 
 export default function Projects() {
   const [projectForm, setProjectForm] = useState({
@@ -11,27 +10,17 @@ export default function Projects() {
 
   const handleProjectSubmit = async (e) => {
     e.preventDefault();
-
-    const formData = new FormData();
-    formData.append("title", projectForm.title);
-    formData.append("description", projectForm.description);
-    formData.append("link", projectForm.link);
-    if (thumbnail) {
-      formData.append("thumbnail_image", thumbnail);
-    }
-
-    await axios.post("http://localhost:5000/api/projects", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
-
-    alert("Project Added!");
-    setProjectForm({ title: "", description: "", link: "" });
-    setThumbnail(null);
+    alert("This is a static website. To add projects, edit the data in /public/data/projects.json");
   };
 
   return (
     <div>
       <h2>Add Project</h2>
+      <div style={{backgroundColor: '#fff3cd', padding: '15px', borderRadius: '5px', marginBottom: '20px'}}>
+        <p style={{color: '#856404', margin: 0}}>
+          <strong>Note:</strong> This is a static website. To add or edit projects, please update the JSON file at <code>/public/data/projects.json</code>
+        </p>
+      </div>
       <form onSubmit={handleProjectSubmit}>
         <input
           placeholder="Title"
@@ -58,7 +47,7 @@ export default function Projects() {
           onChange={(e) => setThumbnail(e.target.files[0])}
         /><br />
 
-        <button type="submit">Add Project</button>
+        <button type="submit" disabled>Add Project (Disabled - Edit JSON directly)</button>
       </form>
 
       <hr />

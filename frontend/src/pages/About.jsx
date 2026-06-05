@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 
 const About = () => {
+  const [activeTab, setActiveTab] = useState("about");
+
   const pageStyle = {
-    // background: "linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)",
     minHeight: "100vh",
     fontFamily: "Poppins, sans-serif",
     color: "#1e293b",
-    paddingTop: "100px", // offset for fixed navbar
+    paddingTop: "100px",
     paddingBottom: "80px",
+    background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
   };
 
   const containerStyle = {
     maxWidth: "1100px",
     margin: "0 auto",
     padding: "0 20px",
-    textAlign: "center",
   };
 
   const headingStyle = {
@@ -26,6 +27,7 @@ const About = () => {
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     letterSpacing: "1px",
+    textAlign: "center",
   };
 
   const subheadingStyle = {
@@ -36,7 +38,33 @@ const About = () => {
     maxWidth: "700px",
     margin: "0 auto 50px",
     lineHeight: "1.8",
+    textAlign: "center",
   };
+
+  const tabButtonsStyle = {
+    display: "flex",
+    gap: "15px",
+    marginBottom: "40px",
+    justifyContent: "center",
+    flexWrap: "wrap",
+  };
+
+  const tabButtonStyle = (isActive) => ({
+    padding: "12px 24px",
+    border: "none",
+    borderRadius: "8px",
+    fontSize: "16px",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    background: isActive
+      ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      : "white",
+    color: isActive ? "white" : "#667eea",
+    boxShadow: isActive
+      ? "0 8px 20px rgba(102, 126, 234, 0.3)"
+      : "0 4px 12px rgba(0,0,0,0.1)",
+  });
 
   const sectionStyle = {
     display: "grid",
@@ -86,6 +114,11 @@ const About = () => {
     lineHeight: "1.8",
   };
 
+  const serviceIconStyle = {
+    fontSize: "40px",
+    marginBottom: "15px",
+  };
+
   const glowCircle = {
     position: "absolute",
     top: "-50px",
@@ -103,60 +136,300 @@ const About = () => {
       <Navbar />
       <div style={pageStyle}>
         <div style={containerStyle}>
-          <h1 style={headingStyle}>About Me</h1>
+          <h1 style={headingStyle}>Hi, I'm Athira Anil</h1>
           <p style={subheadingStyle}>
-            I’m a passionate Software Developer who loves transforming creative ideas
-            into modern, user-friendly web applications. I focus on crafting
-            interfaces that are both beautiful and technically efficient, blending
-            art and logic to create seamless digital experiences.
+            A passionate Full-Stack Developer & Creative Designer specializing in
+            building beautiful, responsive websites and creating stunning digital designs.
           </p>
 
-          <div style={sectionStyle}>
-            {/* Card 1 */}
-            <div
-              style={cardStyle}
-              onMouseEnter={cardHover}
-              onMouseLeave={cardLeave}
+          {/* Tab Buttons */}
+          <div style={tabButtonsStyle}>
+            <button
+              style={tabButtonStyle(activeTab === "about")}
+              onClick={() => setActiveTab("about")}
             >
-              <div style={glowCircle}></div>
-              <h3 style={cardTitle}>Who I Am</h3>
-              <p style={cardText}>
-                A curious mind with a love for front-end and full-stack development.
-                I enjoy working with React, Express, and Vite — turning ideas into
-                interactive and responsive digital realities.
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div
-              style={cardStyle}
-              onMouseEnter={cardHover}
-              onMouseLeave={cardLeave}
+              👤 About Me
+            </button>
+            <button
+              style={tabButtonStyle(activeTab === "services")}
+              onClick={() => setActiveTab("services")}
             >
-              <div style={glowCircle}></div>
-              <h3 style={cardTitle}>What I Do</h3>
-              <p style={cardText}>
-                I build intuitive web apps with clean UI/UX using React, Tailwind CSS,
-                and animation effects. I also integrate APIs and optimize performance
-                for smooth, fast user experiences.
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div
-              style={cardStyle}
-              onMouseEnter={cardHover}
-              onMouseLeave={cardLeave}
+              ⚡ Services
+            </button>
+            <button
+              style={tabButtonStyle(activeTab === "expertise")}
+              onClick={() => setActiveTab("expertise")}
             >
-              <div style={glowCircle}></div>
-              <h3 style={cardTitle}>My Vision</h3>
-              <p style={cardText}>
-                To grow as a creative problem solver and tech enthusiast who blends
-                innovation with design. My goal is to contribute to projects that
-                inspire, empower, and make a real-world impact.
-              </p>
-            </div>
+              🎯 Expertise
+            </button>
           </div>
+
+          {/* About Tab */}
+          {activeTab === "about" && (
+            <div style={sectionStyle}>
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <h3 style={cardTitle}>Who I Am</h3>
+                <p style={cardText}>
+                  A passionate and creative Full-Stack Developer with expertise in building
+                  modern web applications. I blend technical excellence with creative design
+                  to deliver innovative digital solutions that exceed expectations.
+                </p>
+              </div>
+
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <h3 style={cardTitle}>What I Do</h3>
+                <p style={cardText}>
+                  I craft intuitive web experiences using React, Express.js, and modern CSS
+                  frameworks. From responsive layouts to seamless animations, I ensure every
+                  pixel serves a purpose while maintaining clean, maintainable code.
+                </p>
+              </div>
+
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <h3 style={cardTitle}>My Passion</h3>
+                <p style={cardText}>
+                  I'm driven by creating meaningful digital experiences that solve real problems.
+                  Whether it's building feature-rich applications or designing visually stunning
+                  interfaces, I bring creativity and precision to every project.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Services Tab */}
+          {activeTab === "services" && (
+            <div style={sectionStyle}>
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <div style={serviceIconStyle}>🌐</div>
+                <h3 style={cardTitle}>Web Development</h3>
+                <p style={cardText}>
+                  <strong>Creative & Responsive Websites:</strong> Building modern, high-performance
+                  websites with React.js, Express.js, and responsive design principles. Fully
+                  functional web applications optimized for all devices.
+                </p>
+              </div>
+
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <div style={serviceIconStyle}>🎨</div>
+                <h3 style={cardTitle}>UI/UX Design</h3>
+                <p style={cardText}>
+                  <strong>Website Design & Prototyping:</strong> Creating beautiful, user-centric
+                  designs using Figma. Custom layouts, color schemes, and interactive prototypes
+                  that bring your vision to life with precision.
+                </p>
+              </div>
+
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <div style={serviceIconStyle}>🏷️</div>
+                <h3 style={cardTitle}>Logo Design</h3>
+                <p style={cardText}>
+                  <strong>Unique & Professional Logos:</strong> Designing memorable brand identities
+                  with creative visuals. From concept to final artwork, creating logos that represent
+                  your brand essence perfectly.
+                </p>
+              </div>
+
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <div style={serviceIconStyle}>📄</div>
+                <h3 style={cardTitle}>Poster Design</h3>
+                <p style={cardText}>
+                  <strong>Eye-Catching Posters:</strong> Creating impactful poster designs for events,
+                  promotions, and announcements. Compelling layouts with stunning visuals that grab
+                  attention and communicate your message effectively.
+                </p>
+              </div>
+
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <div style={serviceIconStyle}>📢</div>
+                <h3 style={cardTitle}>Static Ads Design</h3>
+                <p style={cardText}>
+                  <strong>Engaging Advertisement Designs:</strong> Creating static ads for social media,
+                  banners, and web platforms. Optimized visuals with clear calls-to-action that drive
+                  engagement and conversions.
+                </p>
+              </div>
+
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <div style={serviceIconStyle}>✨</div>
+                <h3 style={cardTitle}>Brand Identity</h3>
+                <p style={cardText}>
+                  <strong>Complete Design Solutions:</strong> Developing comprehensive brand identities
+                  that include logos, color palettes, typography, and design guidelines. Building a
+                  cohesive visual language for your brand.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Expertise Tab */}
+          {activeTab === "expertise" && (
+            <div style={sectionStyle}>
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <h3 style={cardTitle}>Frontend Skills</h3>
+                <div style={cardText}>
+                  <p>
+                    <strong>Languages:</strong> HTML, CSS, JavaScript
+                  </p>
+                  <p>
+                    <strong>Frameworks & Libraries:</strong> React.js, Bootstrap, Reactstrap
+                  </p>
+                  <p>
+                    <strong>Tools:</strong> Vite, Tailwind CSS, Responsive Design
+                  </p>
+                </div>
+              </div>
+
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <h3 style={cardTitle}>Backend Skills</h3>
+                <div style={cardText}>
+                  <p>
+                    <strong>Languages:</strong> JavaScript (Node.js), Python, PHP
+                  </p>
+                  <p>
+                    <strong>Frameworks:</strong> Express.js, Laravel
+                  </p>
+                  <p>
+                    <strong>Architecture:</strong> REST APIs, Server-side Rendering
+                  </p>
+                </div>
+              </div>
+
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <h3 style={cardTitle}>Database & Tools</h3>
+                <div style={cardText}>
+                  <p>
+                    <strong>Databases:</strong> MySQL, MongoDB, NoSQL
+                  </p>
+                  <p>
+                    <strong>Design & Prototyping:</strong> Figma, UI/UX Design
+                  </p>
+                  <p>
+                    <strong>Version Control:</strong> Git, GitHub
+                  </p>
+                </div>
+              </div>
+
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <h3 style={cardTitle}>Design Expertise</h3>
+                <div style={cardText}>
+                  <p>
+                    <strong>Logo Design:</strong> Brand identity & visual concepts
+                  </p>
+                  <p>
+                    <strong>Poster Design:</strong> Event & promotional materials
+                  </p>
+                  <p>
+                    <strong>Ad Design:</strong> Social media & web ads
+                  </p>
+                </div>
+              </div>
+
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <h3 style={cardTitle}>Soft Skills</h3>
+                <div style={cardText}>
+                  <p>
+                    <strong>Problem Solving:</strong> Creative & analytical thinking
+                  </p>
+                  <p>
+                    <strong>Communication:</strong> Clear client interaction
+                  </p>
+                  <p>
+                    <strong>Collaboration:</strong> Team projects & feedback integration
+                  </p>
+                </div>
+              </div>
+
+              <div
+                style={cardStyle}
+                onMouseEnter={cardHover}
+                onMouseLeave={cardLeave}
+              >
+                <div style={glowCircle}></div>
+                <h3 style={cardTitle}>Specializations</h3>
+                <div style={cardText}>
+                  <p>
+                    <strong>Full-Stack Development:</strong> Complete web solutions
+                  </p>
+                  <p>
+                    <strong>Responsive Design:</strong> Mobile-first approach
+                  </p>
+                  <p>
+                    <strong>Creative Branding:</strong> Visual identity solutions
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

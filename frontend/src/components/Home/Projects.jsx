@@ -40,26 +40,36 @@
 //
 
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import projectImage from "../../assets/projects.png";
 import thumbnailbgImg from "../../assets/polysoftdev.png";
 
 function Projects() {
   const [projects, setProjects] = useState([]);
   const [featuredProject, setFeaturedProject] = useState(null);
+  const navigate = useNavigate();
+
+  const MAX_DESCRIPTION_LENGTH = 150;
+
+  const truncateDescription = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength).trim() + "...";
+    }
+    return text;
+  };
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/projects").then((res) => {
-      setProjects(res.data);
-      if (res.data.length > 0) {
-        setFeaturedProject(res.data[0]); // Set first project as featured
+    fetch("/data/projects.json").then((res) => res.json()).then((data) => {
+      setProjects(data);
+      if (data.length > 0) {
+        setFeaturedProject(data[0]); // Set first project as featured
       }
     });
   }, []);
 
   const sectionStyle = {
-    background: "linear-gradient(to right, #6366f1, #06054eff)",
-    color: "#ffffff",
+    background: "var(--bg-secondary)",
+    color: "var(--text-primary)",
     padding: "60px 40px",
     minHeight: "100vh",
     fontFamily: "Segoe UI, sans-serif",
@@ -83,7 +93,9 @@ function Projects() {
     fontSize: "42px",
     fontWeight: "900",
     letterSpacing: "1px",
-    textShadow: "2px 2px 6px rgba(0,0,0,0.3)",
+    background: "var(--accent-gradient)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
     margin: 0,
   };
   const projectSectionImageStyle = {
@@ -100,15 +112,15 @@ function Projects() {
   };
 
   const featuredProjectContainerStyle = {
-    background: "#ffffff",
-    backdropFilter: "blur(8px)",
+    background: "var(--surface)",
+    backdropFilter: "blur(10px)",
+    border: "1px solid var(--border)",
     borderRadius: "16px",
     padding: "20px",
     width: "95%",
     height: "35rem",
     maxWidth: "850px",
-    boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
-    border: "1px solid rgba(255,255,255,0.15)",
+    boxShadow: "var(--shadow-soft)",
     marginBottom: "30px",
     display: "flex",
     flexDirection: "column",
@@ -133,13 +145,13 @@ function Projects() {
     fontWeight: "800",
     marginTop: "auto",
     marginBottom: "auto",
-    color: "#333",
+    color: "var(--text-primary)",
     textAlign: "center",
   };
 
   const featuredDescriptionStyle = {
     fontSize: "16px",
-    color: "#444",
+    color: "var(--text-muted)",
     marginBottom: "5px",
     lineHeight: "1.6",
     textAlign: "center",
@@ -151,11 +163,11 @@ function Projects() {
     fontWeight: "700",
     color: "#ffffff",
     textDecoration: "none",
-    background: "linear-gradient(to right, #8b5cf6, #d946ef)",
+    background: "linear-gradient(to right, #ec4899, #8b5cf6)",
     padding: "12px 25px",
     borderRadius: "10px",
     display: "inline-block",
-    boxShadow: "0 6px 18px rgba(0,0,0,0.5)",
+    boxShadow: "0 6px 18px rgba(236, 72, 153, 0.4)",
     transition: "transform 0.2s ease, background 0.3s ease",
   };
 
@@ -166,7 +178,7 @@ function Projects() {
     padding: "20px 0",
     maxWidth: "100%",
     scrollbarWidth: "thin",
-    scrollbarColor: "#6366f1 #333",
+    scrollbarColor: "#ec4899 #333",
     WebkitOverflowScrolling: "touch",
   };
 
@@ -175,27 +187,27 @@ function Projects() {
       height: 8px;
     }
     .carousel-wrapper::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(139, 92, 246, 0.1);
       border-radius: 10px;
     }
     .carousel-wrapper::-webkit-scrollbar-thumb {
-      background-color: #6366f1;
+      background: linear-gradient(to right, #ec4899, #8b5cf6);
       border-radius: 10px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(236, 72, 153, 0.2);
     }
   `;
 
   const thumbnailCardStyle = {
     flexShrink: 0,
-    background: "rgba(255, 255, 255, 0.08)",
+    background: "var(--surface)",
     backdropFilter: "blur(5px)",
     borderRadius: "15px",
     padding: "15px",
     width: "180px",
-    boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
+    boxShadow: "var(--shadow-soft)",
     transition:
       "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
-    border: "1px solid rgba(255,255,255,0.15)",
+    border: "1px solid var(--border)",
     cursor: "pointer",
     display: "flex",
     flexDirection: "column",
@@ -214,14 +226,14 @@ function Projects() {
   const thumbnailTitleStyle = {
     fontSize: "14px",
     fontWeight: "600",
-    color: "#ffffff",
+    color: "var(--text-primary)",
     textAlign: "center",
     marginBottom: "5px",
   };
 
   const thumbnailDescriptionStyle = {
     fontSize: "11px",
-    color: "#cccccc",
+    color: "var(--text-muted)",
     textAlign: "center",
     overflow: "hidden",
     textOverflow: "ellipsis",
@@ -242,9 +254,9 @@ function Projects() {
     transform: "translate(-50%, -50%)",
     width: "7.77rem",
     height: "35rem",
-    background: "#ffffff",
+    background: "var(--surface-strong)",
     borderRadius: "18px 0px 0px 18px", // Rectangle corners stay sharp
-    boxShadow: "0 0 10px rgba(255, 255, 255, 0.1)",
+    boxShadow: "var(--shadow-soft)",
     zIndex: 2,
     overflow: "hidden",
     display: "flex",
@@ -293,22 +305,50 @@ function Projects() {
             />
             <h2 style={featuredTitleStyle}>{featuredProject.title}</h2>
             <p style={featuredDescriptionStyle}>
-              {featuredProject.description}
+              {truncateDescription(featuredProject.description, MAX_DESCRIPTION_LENGTH)}
             </p>
-            <a
-              href={featuredProject.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={featuredLinkStyle}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.transform = "scale(1.05)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.transform = "scale(1)")
-              }
-            >
-              Visit Project →
-            </a>
+            <div style={{ display: "flex", gap: "12px", marginTop: "10px", flexWrap: "wrap", justifyContent: "center" }}>
+              {featuredProject.description.length > MAX_DESCRIPTION_LENGTH && (
+                <button
+                  onClick={() => navigate(`/projects/${featuredProject.id}`)}
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "700",
+                    color: "#ffffff",
+                    textDecoration: "none",
+                    background: "var(--btn-bg)",
+                    padding: "12px 25px",
+                    borderRadius: "10px",
+                    border: "none",
+                    cursor: "pointer",
+                    boxShadow: "0 6px 18px rgba(0,0,0,0.2)",
+                    transition: "transform 0.2s ease, background 0.3s ease",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.transform = "scale(1.05)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.transform = "scale(1)")
+                  }
+                >
+                  Read More
+                </button>
+              )}
+              <a
+                href={featuredProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={featuredLinkStyle}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.transform = "scale(1.05)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.transform = "scale(1)")
+                }
+              >
+                Visit Project →
+              </a>
+            </div>
           </div>
         )}
 
@@ -320,8 +360,8 @@ function Projects() {
                 ...thumbnailCardStyle,
                 borderColor:
                   featuredProject && featuredProject.id === p.id
-                    ? "#8b5cf6"
-                    : "rgba(255,255,255,0.15)",
+                    ? "var(--link)"
+                    : "var(--border)",
                 boxShadow:
                   featuredProject && featuredProject.id === p.id
                     ? "0 8px 20px rgba(139, 92, 246, 0.4)"
@@ -357,9 +397,9 @@ function Projects() {
               alignItems: "center",
               fontSize: "20px",
               fontWeight: "700",
-              color: "#ffffff",
-              background: "rgba(255, 255, 255, 0.05)",
-              border: "1px dashed rgba(255,255,255,0.3)",
+              color: "var(--text-primary)",
+              background: "var(--surface)",
+              border: "1px dashed var(--border)",
             }}
             onClick={() =>
               alert("Navigate to all projects page or open a modal.")

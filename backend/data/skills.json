@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1771048831976,
+    "name": "HTML",
+    "proficiency": "",
+    "description": "HTML (HyperText Markup Language) is the standard markup language used to create and structure web pages. It defines the meaning and structure of content using elements and tags, which browsers interpret to display text, images, links, and other media.",
+    "createdAt": "2026-02-14T06:00:31.976Z"
+  },
+  {
+    "id": 1771049289014,
+    "name": "CSS",
+    "proficiency": "",
+    "description": "CSS (Cascading Style Sheets) is a stylesheet language used to control the presentation of HTML documents. It defines how elements should be displayed — including colors, fonts, spacing, layouts, and animations — enabling a clear separation between content (HTML) and design. This separation improves maintainability and allows consistent styling across multiple pages.",
+    "icon": "/uploads/1771049289004.png",
+    "createdAt": "2026-02-14T06:08:09.014Z"
+  }
+]

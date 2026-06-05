@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1771048442430,
+    "title": "Private Family Social Media Platform",
+    "description": "This project is a private social networking platform designed exclusively for families. Inspired by the familiar interface of Facebook, it provides a secure and intimate space where only selected family members can connect, share, and preserve memories.\r\n\r\nKey Features:\r\n\r\n- Family Timeline: Members can post thoughts, feelings, photos, and updates in a chronological feed.\r\n- Privacy & Exclusivity: Unlike public social media, access is restricted to approved family members only.\r\n- Detailed Member Profiles: Each member can create a bio including:\r\n- Education qualifications\r\n- Relationships to other family members\r\n- Date of birth\r\n- Personal details and milestones\r\n- Rich Media Sharing: Support for photos and other media to capture family moments.\r\n- Interactive Engagement: Likes, comments, and reactions to strengthen family bonds.\r\n\r\nPurpose:\r\nThe platform aims to serve as a digital family diary, fostering closer connections and preserving family history in a safe, private environment. It combines the usability of mainstream social media with the intimacy of a closed family circle.\r\n",
+    "link": "https://athira-351.github.io/private_family_group_profile/",
+    "thumbnail_image": "/uploads/1771048442392.png",
+    "createdAt": "2026-02-14T05:54:02.430Z"
+  },
+  {
+    "id": 1771048442431,
+    "title": "Abhinand Portfolio",
+    "description": "A modern, responsive portfolio website showcasing projects, skills, and professional experience. Features smooth animations, interactive elements, and an elegant dark theme with gradient accents.\r\n\r\nKey Features:\r\n- Responsive Design: Works seamlessly on all devices and screen sizes\r\n- Interactive Animations: Smooth transitions and hover effects throughout\r\n- Project Showcase: Display of completed projects with descriptions and links\r\n- Skills Section: Detailed breakdown of technical and professional skills\r\n- Contact Section: Easy-to-use contact form and social media links\r\n- Modern UI/UX: Clean design with gradient backgrounds and contemporary styling\r\n\r\nTechnology Stack:\r\n- React.js for component-based architecture\r\n- Tailwind CSS for responsive styling\r\n- Vercel for deployment and hosting\r\n- JavaScript ES6+ for interactivity\r\n",
+    "link": "https://abhinand-five.vercel.app/",
+    "thumbnail_image": "/uploads/portfolio.png",
+    "createdAt": "2026-02-15T05:54:02.430Z"
+  },
+  {
+    "id": 1771048442432,
+    "title": "Blog Management System",
+    "description": "A comprehensive blog platform with full-featured content management capabilities. Users can create, edit, delete, and publish blog posts with user authentication and role-based access control.\r\n\r\nKey Features:\r\n- User Authentication: Secure login and registration system\r\n- Post Management: Create, edit, delete, and publish blog posts\r\n- Rich Text Editor: Format content with images, links, and styling\r\n- Categories & Tags: Organize posts by topics and keywords\r\n- Comments System: Reader engagement through post comments\r\n- Search Functionality: Find posts by title, category, or keywords\r\n- Admin Dashboard: Manage all users and posts from central dashboard\r\n- Responsive Design: Mobile-friendly interface\r\n\r\nTechnology Stack:\r\n- Backend: Node.js with Express.js framework\r\n- Database: MongoDB for scalable data storage\r\n- Frontend: React.js with modern UI components\r\n- Authentication: JWT tokens for secure sessions\r\n",
+    "link": "https://blog-management-system-one.vercel.app/",
+    "thumbnail_image": "/uploads/blog-system.png",
+    "createdAt": "2026-02-16T05:54:02.430Z"
+  },
+  {
+    "id": 1771048442433,
+    "title": "iWEX Platform",
+    "description": "A cryptocurrency exchange platform providing real-time market data, secure transactions, and portfolio tracking. Features advanced analytics, price charts, and portfolio management tools for crypto traders.\r\n\r\nKey Features:\r\n- Real-Time Market Data: Live cryptocurrency prices and trading volumes\r\n- Secure Transactions: Safe buy/sell/swap functionality with encryption\r\n- Portfolio Tracking: Monitor holdings and track gains/losses\r\n- Price Charts: Interactive candlestick and line charts with technical analysis\r\n- Market Analytics: Detailed insights into market trends and movements\r\n- Wallet Integration: Connect and manage crypto wallets\r\n- Trading History: Complete transaction records and reports\r\n- User Dashboard: Personalized trading interface\r\n\r\nTechnology Stack:\r\n- Frontend: React.js with TypeScript\r\n- Web3 Integration: Smart contract interaction and wallet connectivity\r\n- APIs: Real-time crypto market data integration\r\n- Charts: Chart.js for advanced market visualization\r\n",
+    "link": "https://iwex-seven.vercel.app/",
+    "thumbnail_image": "/uploads/iwex-platform.png",
+    "createdAt": "2026-02-17T05:54:02.430Z"
+  },
+  {
+    "id": 1771048442434,
+    "title": "Exam Analyzer",
+    "description": "An intelligent exam performance analysis tool that provides detailed insights into test results. Identifies weak areas and recommends personalized study plans based on performance metrics.\r\n\r\nKey Features:\r\n- Score Analysis: Detailed breakdown of exam performance by subject/topic\r\n- Weak Area Identification: Automatic detection of problem areas needing improvement\r\n- Performance Trends: Track improvement over multiple attempts and tests\r\n- Personalized Recommendations: AI-generated study suggestions based on performance\r\n- Visual Reports: Charts and graphs showing performance metrics\r\n- Study Plan Generator: Customized learning paths for improvement\r\n- Comparative Analysis: Compare performance with class average and top scorers\r\n- Progress Tracking: Monitor improvement over time with detailed analytics\r\n\r\nTechnology Stack:\r\n- Frontend: React.js for interactive user interface\r\n- Charts & Visualizations: Chart.js and D3.js for data visualization\r\n- Analytics Engine: Custom algorithms for performance analysis\r\n- Backend: Node.js for data processing and recommendations\r\n- Database: MongoDB for storing exam and performance data\r\n",
+    "link": "https://exam-analyzer-6zo6.vercel.app/",
+    "thumbnail_image": "/uploads/exam-analyzer.png",
+    "createdAt": "2026-02-18T05:54:02.430Z"
+  }
+]

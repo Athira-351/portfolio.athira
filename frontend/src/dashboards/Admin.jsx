@@ -85,7 +85,6 @@
 
 
 import { useState } from "react";
-import axios from "axios";
 import Projects from "../pages/Admin/Projects";
 import Skills from "../pages/Admin/Skills";
 
